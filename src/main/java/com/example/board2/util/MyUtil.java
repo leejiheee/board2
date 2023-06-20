@@ -44,7 +44,7 @@ public class MyUtil {
 		}
 		
 		if(totalPage > numPerBlock && currentPageSetup > 0) {
-			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">이전</a>&nbsp");
+			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">◀이전</a>&nbsp");
 
 		}
 		
@@ -55,7 +55,7 @@ public class MyUtil {
 			
 			if(page == currentPage) {
 				//현재 내가 선택한 페이지라면 
-				sb.append("<font color=\"puple\">" + page + "</font>&nbsp;");
+				sb.append("<font color=\"hotpink\">" + page + "</font>&nbsp;");
 			} else {
 				//내가 선택한 페이지가 아니면
 				sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\">" + page + "</a>&nbsp");
@@ -66,8 +66,13 @@ public class MyUtil {
 		}
 		
 		//3. 다음▶ 버튼 만들기
+		if(totalPage - currentPageSetup > numPerBlock) {
+			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">다음▶</a>&nbsp");
+		}
+		
 		
 		//4. 버튼 합쳐서 문자열로 리턴
+		System.out.println(sb.toString());
 		
 		return sb.toString();
 		
